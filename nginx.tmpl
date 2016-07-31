@@ -186,7 +186,7 @@ server {
 
 server {
 	server_name {{ $host }};
-	listen 80 {{ $default_server }};
+	listen 80 proxy_protocol;
 	access_log /var/log/nginx/access.log vhost;
 
 	{{ if (exists (printf "/etc/nginx/vhost.d/%s" $host)) }}

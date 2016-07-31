@@ -4,14 +4,12 @@
 This fork has a simple change included in the `nginx.tmpl` file to enable the proxy protocol on port 80.
 With this change it's possible to make the AWS Elastic Load Balancer (ELB) balace web sockets.
 
-#### Example
+#### Usage
+Use the ELB to terminate SSL traffic and load balace web-sockets and http flows across many nginx servers.
 Follow this [post](https://blog.jverkamp.com/2015/07/20/configuring-websockets-behind-an-aws-elb/) in order to configure the ELB
 
-+------------+ 80         +--------------+ 80        +-----+  443         +------------+
-| web|socker | <----------+nginx         | <---------+ AWS | <------------+ web-socket |
-| server     |            |reverse proxy |           | ELB |              | client     |
-+------------+            +--------------+           +-----+              +------------+
 
+## Original repo
 
 nginx-proxy sets up a container running nginx and [docker-gen][1].  docker-gen generates reverse proxy configs for nginx and reloads nginx when containers are started and stopped.
 
